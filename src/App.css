@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&family=Slackey&display=swap');
+
+:root {
+  /* Colors */
+  --dark-orange: #887058ab;
+  --orange: #ee9b00f8;
+  --muddy-yellow: #E9D8A6;
+  --mint: #94D2BD;
+  --light-blue: #0A9396;
+  --deep-sea: #005F73;
+  --darkest: #001219;
+
+  /* Fonts */
+  --main-font: 'Slackey', cursive; 
+  --open-sans: 'Open Sans', cursive;
+}
+
+.App {
+  padding: 0em 4em;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, rgba(234,185,43,0.2), rgba(245,221,153,0.2), rgba(234,185,43,0.2) );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.introduction-container h1 {
+  font-family: var(--main-font);
+  color: var(--dark-orange);
+  font-size: 7em;
+  margin: 0;
+}
