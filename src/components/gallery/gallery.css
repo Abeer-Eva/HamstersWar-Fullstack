@@ -1,0 +1,23 @@
+gallery-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+.hamster-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    /* margin-top: 4rem; */
+    margin: 4rem 4rem 0 4rem;
+}
+.hamster-card {
+    text-align: left;
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    border-radius: var(--box-radius);
+    padding: .5em .5em 1em .5em;
+    display: flex;
+    flex-direction: column;
+}

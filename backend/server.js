@@ -22,6 +22,9 @@ app.use('/', express.static(__dirname + '/../evaluate'))
 
 //Roter for Endpoint
 app.use('/hamsters', hamstersRouter)
+// app.get('*', (req, res) => {
+// 	res.sendFile(__dirname + '/../build/index.html')
+// })
 
 
 

@@ -1,28 +1,26 @@
 
-import { Link, Switch, Route, Redirect } from 'react-router-dom'
+import { Link, Switch, Route } from 'react-router-dom'
 
 import './App.css';
-import Gallery from './components/Gallery';
+import Gallery from './components/gallery/Gallery';
+import StartSida from './components/StartSida';
 
 function App() {
   return (
     <div className="App">
       <header>
-        <h2>Hamster Wars</h2>
         <nav className="menuSection">
-          <Link to='/'>Startsida</Link>
+          <Link to='/'>Home</Link>
           <Link to='/Tävla'>Tävla</Link>
-          <Link to='/Galleri'>Galleri</Link>
+          <Link to='/Gallery'>Galleri</Link>
         </nav>
       </header>
       <main>
 
         <Switch>
-          <Route path="/" exact> Home </Route>
-          <Route path="/Gallery/:id"> <Gallery /> </Route>
-          <Route path="/match">  Tävlling </Route>
-
-
+          <Route exact path="/" > <StartSida /> </Route>
+          <Route path="/Gallery"> <Gallery /> </Route>
+          
         </Switch>
       </main>
 
