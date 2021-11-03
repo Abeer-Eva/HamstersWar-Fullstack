@@ -4,7 +4,7 @@ import { Link, Switch, Route } from 'react-router-dom'
 import './App.css';
 import Gallery from './components/gallery/Gallery';
 import Play from './components/Play';
-import StartSida from './components/StartSida';
+import StartSida from './components/start/StartSida';
 
 function App() {
   return (
