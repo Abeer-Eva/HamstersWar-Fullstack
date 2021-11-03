@@ -33,7 +33,7 @@ const Gallery = () => {
         <div className="gallery-container">
             <header className="gallery-header">
                 <h1 className="gallery-title"> Gallery</h1>
-                <p>Here is all of our hamsters. Please, fill free to upload a new one, delete a current one or click on each hamster for more information about each and every unique hamster.</p>
+                <p>It's your game , fill free to upload a new one, delete a current one or click on each hamster for more information about each and every unique hamster.</p>
                 <button className="main-btn">Add hamster</button>
             </header>
             <div className="hamster-grid">
@@ -43,14 +43,13 @@ const Gallery = () => {
                             <img className="hamster-image" src="" alt="hamster" />
 
                             <h3>{hamster.name}</h3>
-
                             <p >age:{hamster.age}</p>
                             <p >favorit food:{hamster.favFood}</p>
                             <p >{hamster.loves}</p>
                             <p >{hamster.defeats}</p>
 
 
-                            <button className="remove-btn">Remove</button>
+                            <button className="button">Remove</button>
                         </section>
 
                     ))

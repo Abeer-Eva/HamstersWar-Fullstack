@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const StartSida = () => {
     return (
         <article className="introduction-container">
@@ -7,7 +8,10 @@ const StartSida = () => {
             </div>
             <h3>How to play?</h3>
             <p>Simple! Just click on the hamster that you think is the cutest.</p>
-            <button className="main-btn">Play</button>
+            <div className='cont'>
+            <Link to="/play"> <button className="button" >                <p className="text" >Play</p>
+                </button></Link>
+            </div>
         </article>
     )
 }

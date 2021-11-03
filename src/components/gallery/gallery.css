@@ -9,13 +9,12 @@ gallery-header {
     justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
-    /* margin-top: 4rem; */
-    margin: 4rem 4rem 0 4rem;
+    margin: 2rem 4rem 0 4rem;
 }
 .hamster-card {
     text-align: left;
     box-shadow: var(--box-shadow);
-    background-color: white;
+    background-color: rgb(233, 229, 206);
     border-radius: var(--box-radius);
     padding: .5em .5em 1em .5em;
     display: flex;
