@@ -6,10 +6,11 @@ const PORT = process.env.PORT || 1337
 
 
 // Setup MiddleWare
-app.use( express.static(__dirname + '/../build') )
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(require('cors')());
+app.use( '/', express.static(__dirname + '/../../build') )
+
 app.use((req, res, next) => {
 	console.log(`  ${req.method}  ${req.url} `, req.body)
 	next()
@@ -18,13 +19,13 @@ app.use((req, res, next) => {
 
 //Exprss-static
 app.use('/img/:filnamn', express.static(__dirname + '/hamsters'))
-app.use('/', express.static(__dirname + '/../evaluate'))
+app.use("/", express.static(__dirname + '/public'))
 
 //Roter for Endpoint
 app.use('/hamsters', hamstersRouter)
-// app.get('*', (req, res) => {
-// 	res.sendFile(__dirname + '/../build/index.html')
-// })
+app.get('*', (req, res) => {
+	res.sendFile(__dirname + '/build/index.html')
+})
 
 
 

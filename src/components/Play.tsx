@@ -38,12 +38,14 @@ const Play = () => {
             {hamster1?
                 hamster1.map(h => (
                     <div key={h.id}>
+                        <img  src={"hamsters/" + h.imgName} alt="hamster" width="300" height="300"/>
                         <h2>{h.name}  </h2>
                         <h3>{h.age}  </h3>
                         <h3>{h.favFood}  </h3>
                         <h3>{h.loves}  </h3>
                         <h3>{h.wins}  </h3>
-                        <button className="button">Cutest</button>
+                        
+                        <button className="cutest">Cutest</button>
                         
                        
                         

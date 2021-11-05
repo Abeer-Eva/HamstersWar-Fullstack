@@ -2,6 +2,7 @@
 import { Link, Switch, Route } from 'react-router-dom'
 
 import './App.css';
+
 import Gallery from './components/gallery/Gallery';
 import Play from './components/Play';
 import StartSida from './components/start/StartSida';
@@ -22,7 +23,6 @@ function App() {
           <Route exact path="/" > <StartSida /> </Route>
           <Route path="/Gallery"> <Gallery /> </Route>
           <Route path="/Play"> <Play /> </Route>
-          
         </Switch>
       </main>
 

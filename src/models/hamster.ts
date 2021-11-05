@@ -1,5 +1,5 @@
 export interface Hamster {
-    
+    id?:string,
     name:string,
     age:number,
     favFood:string,
@@ -8,5 +8,5 @@ export interface Hamster {
     wins:number,
     defeats:number,
     games:number,
-    id:string
+  
 }

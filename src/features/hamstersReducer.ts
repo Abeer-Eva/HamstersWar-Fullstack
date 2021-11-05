@@ -1,30 +1,27 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import { Hamster } from '../models/hamster'
 
+
+
 // Dessa actions finns - detta är vad användaren kan göra
-// const ?? = createAction(??)
+const getHamsters = createAction<Hamster>('get Hamster Array')
+const addHamster = createAction<Hamster>('Add hamster to gallery')
+const removeHamster = createAction<string>('remove one hamster')
+//Actions att skicka med
+const actions = { getHamsters, addHamster ,removeHamster }
 
-const getHamster = createAction('get hamsters')
-const actions = {getHamster  }
-
-
-// Värdet på "products" när appen startar
-const initialState: Hamster[] = [
-    {
-        games: 0,
-        wins: 2,
-        loves: "promenader",
-        defeats: 0,
-        favFood: 'sallad',
-        age: 2,
-        name: 'Bobby',
-        imgName: 'https://image.posterlounge.se/images/l/1895875.jpg', // URL to image
-        id: '1'
-    }
-]
+// Visar array på "hamsters" när appen startar
+const initialState: Hamster[] = []
 
 const hamsterReducer = createReducer(initialState, {
-
+    //Lägg till hamsters i initialState
+    [getHamsters.toString()]: (state, action) => action.payload || null,
+    [addHamster.toString()]: (state, action) => {},
+ 
+    //Ta bort hamster med ett visst id
+    [removeHamster.toString()]: (state, action) => state.filter(hamster => hamster.id !== action.payload)
 })
 
-export { actions, hamsterReducer }
+
+export { actions , hamsterReducer }
+
