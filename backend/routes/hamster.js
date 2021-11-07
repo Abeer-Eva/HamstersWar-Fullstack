@@ -49,12 +49,12 @@ router.get('/:id', async (req, res) => {
 // POST  NEW HAMSTER
 router.post('/', async (req, res) => {
     let body = await req.body
-
+console.log('post new')
     if (!isHamsterObject(body)) {
         res.sendStatus(400).send('its not right object')
     } else {
         let newHamster = await addOne(body)
-
+console.log(newHamster)
         res.status(200).send(newHamster)
     }
 

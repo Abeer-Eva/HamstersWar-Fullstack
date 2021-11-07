@@ -79,11 +79,8 @@ const getRandom = async () => {
 //DELET ONE HAMSTER
 
 const deleteOne = async (id) => {
-    console.log("delet1")
     const docRef = db.collection(HAMSTERS).doc(id)
-    console.log("delet2")
     const docSnapshot = await docRef.get()
-    console.log("delet3")
     if (docSnapshot.exists) {
         console.log(`Deleting hamster with id ${id} `);
         await docRef.delete()

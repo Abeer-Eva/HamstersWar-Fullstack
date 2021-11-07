@@ -16,12 +16,12 @@ const initialState: Hamster[] = []
 const hamsterReducer = createReducer(initialState, {
     //Lägg till hamsters i initialState
     [getHamsters.toString()]: (state, action) => action.payload || null,
-    [addHamster.toString()]: (state, action) => {},
- 
+   
+    [addHamster.toString()]: (state, action) => [...state, action.payload],
     //Ta bort hamster med ett visst id
     [removeHamster.toString()]: (state, action) => state.filter(hamster => hamster.id !== action.payload)
 })
 
 
-export { actions , hamsterReducer }
+export { actions ,initialState, hamsterReducer }
 

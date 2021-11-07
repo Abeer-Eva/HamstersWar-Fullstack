@@ -20,11 +20,11 @@ const Play = () => {
 
 
     return (
-        <article className="game">
+        <article className="hamster-grid">
 
             {hamster1 ?
                 hamster1.map(h => (
-                    <div key={h.id}>
+                    <div key={h.id}   className="hamster-card">
                         <img src={"hamsters/" + h.imgName} alt="hamster" width="300" height="300" />
                         <h2>{h.name}  </h2>
                         <h3>{h.age}  </h3>

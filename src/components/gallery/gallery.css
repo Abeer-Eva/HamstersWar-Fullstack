@@ -14,11 +14,12 @@ gallery-header {
 .hamster-card {
     text-align: left;
     box-shadow: var(--box-shadow);
-    background-color: rgb(233, 229, 206);
-    border-radius: var(--box-radius);
-    padding: .5em .5em 1em .5em;
+    background-color:#fdc794f8; 
+    border-radius: 10px;
+    padding: .7em .7em .7em .7em;
     display: flex;
     flex-direction: column;
+
 }
 .hamster-card:hover {
     transition: all .5s;
@@ -27,9 +28,7 @@ gallery-header {
 
 .hamster-image  {
     object-fit: cover;  
-    border-radius: var(--box-radius);
-    /* border-top-left-radius: 5px;
-    border-top-right-radius: 5px; */
+    border-radius: 10px;
 }
 
 .overlay {
@@ -49,7 +48,7 @@ gallery-header {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 3.7em 2.5rem;
-    border-radius: var(--box-radius);
+    border-radius: 10px;
 }
 
 .overlay .dialog form {
@@ -73,7 +72,7 @@ gallery-header {
     padding: .7rem;
     font-size: 1rem;
     border: none;
-    border-radius: var(--box-radius);
+    border-radius: 10px;
 }
 
 .overlay .dialog form label {
@@ -89,7 +88,6 @@ gallery-header {
     border: none;
     height: 2rem;
     width: 2rem;
-    font-size: 1vw;
     cursor: pointer;
 }
 

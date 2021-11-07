@@ -21,6 +21,9 @@ async function sendRequest(saveData: any) {
 
 
 const Gallery = () => {
+    const dispatch = useDispatch()
+    const hamsters = useSelector((state: RootState) => state.hamsters)
+
     const [hamsterData, setHamsterData] = useState<Hamster[] | null>(null)
     const [showAddHamsterOverlay, setShowAddHamsterOverlay] = useState<boolean>(true) 
     useEffect(() => {
@@ -30,7 +33,8 @@ const Gallery = () => {
     
 	const addHamster = (hamster: Hamster) => {
 		// TODO: anropa setMovies
-		console.log('App.addMovie anropad med movie=', hamster)
+        console.log('App.addHamster anropad med hamster=', hamster)
+       
 	}
 
 	let addHamsterOverlay = null
@@ -45,6 +49,25 @@ const Gallery = () => {
 		setShowAddHamsterOverlay(true)
 
     }
+
+
+
+    //Delete hamster från database
+    
+    const deleteMethod = {
+        method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8',
+                'Accept': 'application/json;charset=UTF-8',
+            },
+    }
+
+    async function DeleteOne (id: string) {
+        await fetch(`http://localhost:1337/hamsters/${id}`, deleteMethod)
+      
+    }
+
+    // const handleRemove = (hamsterId: string) => dispatch(actions.removeHamster(hamsterId))
 
 
     return (
@@ -63,10 +86,10 @@ const Gallery = () => {
                             <p >age : {hamster.age}</p>
                             <p >favorit food : {hamster.favFood}</p>
                             <p >Loves : {hamster.loves}</p>
-                            <p >{hamster.defeats}</p>
+                          
                            
 
-                            <button   >Remove</button>
+                            <button onClick={() => DeleteOne(hamster.name)}    >Remove</button>
                         </section>
 
                     ))

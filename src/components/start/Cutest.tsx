@@ -22,9 +22,9 @@ const Cutest = () => {
 
             {hamster ?
                 hamster.map(h => (
-                    <div key={h.name}>
+                    <div key={h.name} className= "hamster-cutest">
                         <h2>{h.name}  Is The Cutest</h2>
-                        <img  src={"hamsters/" + h.imgName} alt="hamster" width="300" height="300"/>
+                        <img  src={"hamsters/" + h.imgName} alt="hamster" width="300" height="300"   />
                         
                     </div>
                 ))

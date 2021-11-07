@@ -1,6 +1,9 @@
 
 import { Hamster } from "../../models/hamster"
 import { useState } from 'react'
+import { RootState } from '../../store'
+import { useDispatch, useSelector } from "react-redux"
+import { actions } from '../../features/hamstersReducer'
 
 
 
@@ -18,23 +21,35 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
     const [favFood, setFavFood] = useState<string>('')
     const [loves, setLoves] = useState<string>('')
     const [imgName, setImgName] = useState<string>('')
-  
 
 
-
-
-    const handleAddHamster = () => {
-        // förbered Hamster-objekt och anropa addMovie-funktionen
+    const dispatch = useDispatch()
+    const hamster = useSelector((state: RootState) => state.hamsters)
+    const postHamster = async ()=> {
+        // förbered Hamster-objekt och anropa addHamster-funktionen
         let hamster: Hamster = {
             // Hämta riktiga värden från formuläret
-            id: '', name: name, age: 0, favFood: favFood, loves: loves, imgName: imgName, wins: 0, defeats: 0, games: 0
+            age: 0, defeats: 0,  favFood: favFood, games: 0, imgName: imgName,  loves: loves, name: name,wins: 0
         }
+        const response = await fetch('http://localhost:1337/hamsters/' , 
+            { method: 'POST',
+             headers: {
+             Accept: "application/json",
+             "Content-Type" : "application/json"},
+            body: JSON.stringify(hamster)}
+             )
+    
+            console.log(JSON.stringify(hamster));
+            const newHamster = await response.json()
+            console.log(newHamster)
+             console.log("Success", newHamster);
+            await dispatch(actions.addHamster(newHamster))
+        
         addHamster(hamster)
         close()
 
 
     }
-
     return (
         <div className="overlay">
             <div className="dialog">
@@ -60,7 +75,7 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
                 </form>
                 <div>
 
-                    <button className="addhamster" onClick={handleAddHamster}> Add hamster </button>
+                    <button className="addhamster" onClick={postHamster}> Add hamster </button>
                     <button className="close-btn" onClick={close}> x </button>
                 </div>
 
