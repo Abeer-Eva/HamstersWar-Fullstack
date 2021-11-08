@@ -24,8 +24,9 @@ const Gallery = () => {
     const dispatch = useDispatch()
     const hamsters = useSelector((state: RootState) => state.hamsters)
 
-    const [hamsterData, setHamsterData] = useState<Hamster[] | null>(null)
+    const [hamsterData, setHamsterData] = useState<Hamster[] >(Array)
     const [showAddHamsterOverlay, setShowAddHamsterOverlay] = useState<boolean>(true) 
+    
     useEffect(() => {
        sendRequest(setHamsterData)
     }, [])
@@ -54,20 +55,21 @@ const Gallery = () => {
 
     //Delete hamster från database
     
-    const deleteMethod = {
-        method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json;charset=UTF-8',
-                'Accept': 'application/json;charset=UTF-8',
-            },
+    
+  const DeleteOne=  async  (id: string) =>{
+     await fetch(`http://localhost:1337/hamsters/${id}`,  {
+            method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    'Accept': 'application/json;charset=UTF-8',
+                },
+        }
+    )
+    
     }
 
-    async function DeleteOne (id: string) {
-        await fetch(`http://localhost:1337/hamsters/${id}`, deleteMethod)
-      
-    }
-
-    // const handleRemove = (hamsterId: string) => dispatch(actions.removeHamster(hamsterId))
+     const handleRemove =  (hamsterId: string) => {
+        setHamsterData((hamsterData)=> hamsterData.filter((hamsterObject => hamsterObject.id !== hamsterId)))}
 
 
     return (
@@ -89,7 +91,7 @@ const Gallery = () => {
                           
                            
 
-                            <button onClick={() => DeleteOne(hamster.name)}    >Remove</button>
+                            <button onClick={() =>{ DeleteOne(hamster.id);handleRemove(hamster.id)}}    >Remove</button>
                         </section>
 
                     ))

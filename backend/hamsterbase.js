@@ -25,32 +25,30 @@ function connect() {
 
      const db = admin.firestore();
     
-    //     var hamster= require('./hamster.json')
+      //   var hamster= require('./hamster.json')
     
-    //     hamster.forEach(function(obj) {
+      //  hamster.forEach(function(obj) {
          
-    //        db.collection("HAMSTERS").add({
+      //      db.collection("HAMSTERS").add({
             
-    //           name : obj.name,
-    //           age :obj.age,
-    //           favFood:obj.favFood,
-    //           loves:obj.loves,
-    //           imgName: obj.imgName,
-    //           wins:obj.wins,
-    //           defeats:obj.defeats,
-    //           games:obj.games
-    //         })
+      //         name : obj.name,
+      //        age :obj.age,
+      //        favFood:obj.favFood,
+      //        loves:obj.loves,
+      //        imgName: obj.imgName,
+      //        wins:obj.wins,
+      //        defeats:obj.defeats,
+      //         games:obj.games
+      //       })
            
             
             
-    //         .catch(function(error) {
-    //           console.error("Error adding document: ", error);
-    //         });
-    //     });
+      //        .catch(function(error) {
+      //         console.error("Error adding document: ", error);
+      //      });
+      //  });
       
  return db;   
 }
 
 module.exports = { connect }
-
-

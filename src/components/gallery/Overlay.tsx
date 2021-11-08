@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { RootState } from '../../store'
 import { useDispatch, useSelector } from "react-redux"
 import { actions } from '../../features/hamstersReducer'
+import { url } from "inspector"
 
 
 
@@ -27,7 +28,7 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
     const hamster = useSelector((state: RootState) => state.hamsters)
     const postHamster = async ()=> {
         // förbered Hamster-objekt och anropa addHamster-funktionen
-        let hamster: Hamster = {
+        const hamster = {
             // Hämta riktiga värden från formuläret
             age: 0, defeats: 0,  favFood: favFood, games: 0, imgName: imgName,  loves: loves, name: name,wins: 0
         }
@@ -45,7 +46,7 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
              console.log("Success", newHamster);
             await dispatch(actions.addHamster(newHamster))
         
-        addHamster(hamster)
+       
         close()
 
 
@@ -70,7 +71,8 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
                     <input type="number" placeholder="Insert age" value={age}
                         onChange={e => setAge(e.target.valueAsNumber)} />
 
-                    <input type="text" placeholder="Image URL" />
+                    <input type="url" placeholder="Image URL" value={imgName}
+                        onChange={e => setImgName(e.target.value)} />
 
                 </form>
                 <div>
