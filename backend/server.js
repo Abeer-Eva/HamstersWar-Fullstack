@@ -24,7 +24,9 @@ app.use('/img/', express.static(__dirname + '/hamsters'))
 //Roter for Endpoint
 app.use('/hamsters', hamstersRouter)
 app.get('*', (req, res) => {
-	res.sendFile(__dirname + '/../build/index.html')
+	var path = require('path');
+res.sendFile(path.resolve(__dirname +'/../build/index.html'))
+
 })
 
 

@@ -9,7 +9,7 @@ gallery-header {
     justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
-    margin: 2rem 4rem 0 4rem;
+    margin: 2rem 2rem 0 2rem;
 }
 .hamster-card {
     text-align: left;
@@ -88,6 +88,7 @@ gallery-header {
     border: none;
     height: 2rem;
     width: 2rem;
+
     cursor: pointer;
 }
 

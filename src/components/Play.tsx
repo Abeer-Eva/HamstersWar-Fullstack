@@ -12,18 +12,18 @@ async function sendRequest(saveData: any) {
 }
 
 const Play = () => {
-    const [hamster1, setHamster1] = useState<Hamster[] | null>(null);
-
+    const [hamster, setHamster] = useState<Hamster[] | null>(null);
+    const[winner,setWinner]=useState<number>()
     useEffect(() => {
-        sendRequest(setHamster1)
+        sendRequest(setHamster)
     }, [])
-
-
+    
+    
+   
     return (
         <article className="hamster-grid">
-
-            {hamster1 ?
-                hamster1.map(h => (
+            {hamster ?
+                hamster.map(h => (
                     <div key={h.id}   className="hamster-card">
                         <img src={"hamsters/" + h.imgName} alt="hamster" width="300" height="300" />
                         <h2>{h.name}  </h2>
@@ -32,7 +32,7 @@ const Play = () => {
                         <h3>{h.loves}  </h3>
                         <h3>{h.wins}  </h3>
 
-                        <button className="cutest">Cutest</button>
+                        <button className="cutest" >Cutest</button>
 
 
 
