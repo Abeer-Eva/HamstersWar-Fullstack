@@ -96,5 +96,9 @@ gallery-header {
 
     transition: .3s all;
   }
+  .gallery-title {
+      text-align: center;
+      font-size: 3em ;
+  }
 
 

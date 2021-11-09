@@ -21,7 +21,7 @@
 .App {
   padding: 0em 4em;
   min-height: 100vh;
-  background-color:#fcecddf8 !important;
+  background-color:#fcecddf8 ;
  /* background-image: linear-gradient(to bottom right, rgba(234,185,43,0.2), rgba(245,221,153,0.2), rgba(234,185,43,0.2) );
   background-repeat: no-repeat;
   background-size: cover;*/
@@ -31,13 +31,19 @@ h2, h3,h1{
   
 
 }
-.introduction-container h1 {
+h1 {
+  text-align: center;
   font-family: var(--main-font);
   color: var(--pink);
-  font-size: 7em;
+  font-size: 6em;
   margin: 0;
 }
+nav {
+  text-align: end;
+  padding: 2rem 2rem 2rem 2rem;
+  
 
+}
 .menuSection {
   color: var(--dark-orange);
   text-decoration: none;
@@ -57,7 +63,13 @@ h2, h3,h1{
 
 }
 
-
+.hamster-logo{
+  -webkit-clip-path: circle();
+  clip-path: circle();
+  max-width: 7%;
+  float: left;
+  
+}
 
 .cont {
   position: relative;
@@ -146,7 +158,7 @@ p:nth-child(1) {
     border-color: #E0471F;
   }
 p{
-  font-size: 1.3em;
+  font-size: 1.1em;
   color: var(--dark-orange);
 }
 .cutest{
@@ -159,4 +171,20 @@ p{
   border-radius: 10px;
   padding: .7em .7em .7em .7em;
   margin: 2rem 4rem 0 0rem;
+}
+.fight{
+  text-align: center;
+  margin: 2rem 4rem 0 0rem;
+}
+.contestants {
+	display: flex;
+	flex-direction: row;
+  gap: 3rem;
+  margin: 2rem 2rem 0 2rem;
+  display: flex;
+  justify-content: center;
+ 
+}
+li{
+  list-style: none;
 }

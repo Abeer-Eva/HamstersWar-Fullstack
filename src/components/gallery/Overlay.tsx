@@ -1,10 +1,8 @@
 
 import { Hamster } from "../../models/hamster"
 import { useState } from 'react'
-import { RootState } from '../../store'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { actions } from '../../features/hamstersReducer'
-import { url } from "inspector"
 
 
 
@@ -25,19 +23,19 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
 
 
     const dispatch = useDispatch()
-    const hamster = useSelector((state: RootState) => state.hamsters)
+   
     const postHamster = async ()=> {
         // förbered Hamster-objekt och anropa addHamster-funktionen
         const hamster = {
             // Hämta riktiga värden från formuläret
-            age: 0, defeats: 0,  favFood: favFood, games: 0, imgName: imgName,  loves: loves, name: name,wins: 0
+            age:age, defeats: 0,  favFood: favFood, games: 0, imgName: imgName,  loves: loves, name: name,wins: 0
         }
         const response = await fetch('http://localhost:1337/hamsters/' , 
             { method: 'POST',
              headers: {
              Accept: "application/json",
              "Content-Type" : "application/json"},
-            body: JSON.stringify(hamster)}
+             body: JSON.stringify(hamster)}
              )
     
             console.log(JSON.stringify(hamster));

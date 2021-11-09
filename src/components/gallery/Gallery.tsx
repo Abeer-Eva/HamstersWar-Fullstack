@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { actions } from '../../features/hamstersReducer'
 import { Hamster } from "../../models/hamster"
-import { RootState } from "../../store"
 import "./gallery.css"
 import Overlay from "./Overlay"
 import '../gallery/gallery.css'
@@ -21,8 +18,7 @@ async function sendRequest(saveData: any) {
 
 
 const Gallery = () => {
-    const dispatch = useDispatch()
-    const hamsters = useSelector((state: RootState) => state.hamsters)
+   
 
     const [hamsterData, setHamsterData] = useState<Hamster[] >(Array)
     const [showAddHamsterOverlay, setShowAddHamsterOverlay] = useState<boolean>(true) 
@@ -82,13 +78,13 @@ const Gallery = () => {
                 {hamsterData ?
                     hamsterData.map(hamster => (
                         <section key={hamster.id} className="hamster-card">
-                            <img  src={"hamsters/" + hamster.imgName} alt="hamster" width="300" height="300"/>
+                            <img  src={"hamsters/" + hamster.imgName} alt="hamster" width="250" height="250"/>
 
                             <h3>{hamster.name}</h3>
                             <p >age : {hamster.age}</p>
                             <p >favorit food : {hamster.favFood}</p>
                             <p >Loves : {hamster.loves}</p>
-                          
+                           <p>{hamster.wins}</p>
                            
 
                             <button onClick={() =>{ DeleteOne(hamster.id);handleRemove(hamster.id)}}    >Remove</button>

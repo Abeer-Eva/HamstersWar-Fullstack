@@ -5,15 +5,17 @@ import Cutest from "./Cutest";
 
 
 
+
 const StartSida = () => {
     return (
         <article className="introduction-container">
             <div>
-                <h1>Hamsters War</h1>
+         
+                <h1>Hamster Wars</h1>
             </div>
             <h2>How to play?</h2>
             <p>Simple!!!!!<br/> 
-                1-click on play<br/>
+                1-click on play or on playing on the top<br/>
                 2-Just click on the hamster that you think is the cutest.</p>
 
 
