@@ -23,28 +23,31 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
 
 
     const dispatch = useDispatch()
-   
-    const postHamster = async ()=> {
+
+    const postHamster = async () => {
         // förbered Hamster-objekt och anropa addHamster-funktionen
         const hamster = {
             // Hämta riktiga värden från formuläret
-            age:age, defeats: 0,  favFood: favFood, games: 0, imgName: imgName,  loves: loves, name: name,wins: 0
+            age: age, defeats: 0, favFood: favFood, games: 0, imgName: imgName, loves: loves, name: name, wins: 0
         }
-        const response = await fetch('http://localhost:1337/hamsters/' , 
-            { method: 'POST',
-             headers: {
-             Accept: "application/json",
-             "Content-Type" : "application/json"},
-             body: JSON.stringify(hamster)}
-             )
-    
-            console.log(JSON.stringify(hamster));
-            const newHamster = await response.json()
-            console.log(newHamster)
-             console.log("Success", newHamster);
-            await dispatch(actions.addHamster(newHamster))
-        
-       
+        const response = await fetch('http://localhost:1337/hamsters/',
+            {
+                method: 'POST',
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(hamster)
+            }
+        )
+
+        console.log(JSON.stringify(hamster));
+        const newHamster = await response.json()
+        console.log(newHamster)
+        console.log("Success", newHamster);
+        await dispatch(actions.addHamster(newHamster))
+
+
         close()
 
 
@@ -66,7 +69,7 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
                         value={loves}
                         onChange={e => setLoves(e.target.value)} />
 
-                    <input type="number" placeholder="Insert age" value={age}
+                    <input type="number" min="1" value={age}
                         onChange={e => setAge(e.target.valueAsNumber)} />
 
                     <input type="url" placeholder="Image URL" value={imgName}

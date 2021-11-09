@@ -18,14 +18,14 @@ const Cutest = () => {
     return (
         <article className="first-place-container">
             {/* TODO: Lägga till (rendera) vinnar-hamstern*/}
-            
+
 
             {hamster ?
                 hamster.map(h => (
-                    <div key={h.name} className= "hamster-cutest">
+                    <div key={h.name} className="hamster-cutest">
                         <h2>{h.name}  Is The Cutest</h2>
-                        <img  src={"hamsters/" + h.imgName} alt="hamster" width="300" height="300"   />
-                        
+                        <img src={"hamsters/" + h.imgName} alt="hamster" width="300" height="300" />
+
                     </div>
                 ))
                 : 'Loading cutest ...'
@@ -38,4 +38,4 @@ const Cutest = () => {
     )
 }
 
-export default  Cutest
+export default Cutest
