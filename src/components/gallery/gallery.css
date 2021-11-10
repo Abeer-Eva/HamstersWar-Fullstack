@@ -12,6 +12,7 @@ gallery-header {
     margin: 2rem 2rem 0 2rem;
 }
 .hamster-card {
+
     text-align: left;
     box-shadow: var(--box-shadow);
     background-color:#fdc794f8; 
@@ -21,11 +22,16 @@ gallery-header {
     flex-direction: column;
 
 }
-.hamster-card:hover {
-    transition: all .5s;
-    transform: scale(1.1);
+.hamster-card p {
+    visibility: hidden;
 }
-
+.hamster-card:hover {
+    transition: all .7s;
+    transform: scale(1.5);
+}
+.hamster-card:hover p{
+    visibility: visible;
+}
 .hamster-image  {
     object-fit: cover;  
     border-radius: 10px;
@@ -100,5 +106,6 @@ gallery-header {
       text-align: center;
       font-size: 3em ;
   }
-
-
+img{
+    max-width: 100%;
+}

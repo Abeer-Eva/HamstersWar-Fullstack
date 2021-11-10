@@ -38,6 +38,7 @@ const Fight = () => {
 
 	const updateLoser = async (y: Hamster) => {
 		setLoser(y)
+		//PUT update loser ++, games ++
 		await fetch("/hamsters/" + y.id, {
 			method: 'put',
 			body: JSON.stringify({ defeats: y.defeats + 1, games: y.games + 1 }),
@@ -68,7 +69,7 @@ const Fight = () => {
 
 	return (
 		<section className='fight'>
-			<h1>Hamsters War</h1>
+			<h1>Hamster Wars</h1>
 
 
 			<>

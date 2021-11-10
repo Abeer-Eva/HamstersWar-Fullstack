@@ -82,10 +82,12 @@ const Gallery = () => {
                             <img src={"hamsters/" + hamster.imgName} alt="hamster" width="250" height="250" />
 
                             <h3>{hamster.name}</h3>
-                            <p >age : {hamster.age}</p>
-                            <p >favorit food : {hamster.favFood}</p>
-                            <p >Loves : {hamster.loves}</p>
-                            <p>{hamster.wins}</p>
+                            <p className="hamster-info"  >age : {hamster.age}<br/>
+                            favorit food : {hamster.favFood}<br/>
+                            Loves : {hamster.loves}<br/>
+                            Wins:{hamster.wins}
+                            <br/>
+                            Games:{hamster.games}</p>
 
 
                             <button onClick={() => { DeleteOne(hamster.id); handleRemove(hamster.id) }}    >Remove</button>

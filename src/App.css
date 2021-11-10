@@ -5,10 +5,9 @@
   --pink: #F75780;
   --orange: #f1bf8ef8;
   --muddy-yellow: #E9D8A6;
-  --mint: #94D2BD;
   --dark-orange: #963d0ac4;
-  --deep-sea: #005F73;
   --darkest: #001219;
+--chocklad:rgb(73, 36, 6);
 
   /* Fonts */
   --main-font: 'Slackey', cursive; 
@@ -26,13 +25,22 @@
   background-repeat: no-repeat;
   background-size: cover;*/
 }
-h2, h3,h1{
+
+header{
+  padding: 2rem 0 0 0;
+}
+ h3,h1{
   color: var(--dark-orange);
+  text-align: center;
+
   
 
 }
+h2{
+  color: var(--dark-orange); 
+}
 h1 {
-  text-align: center;
+  position: relative;
   font-family: var(--main-font);
   color: var(--pink);
   font-size: 6em;
@@ -64,10 +72,12 @@ nav {
 }
 
 .hamster-logo{
+
   -webkit-clip-path: circle();
   clip-path: circle();
   max-width: 7%;
   float: left;
+
   
 }
 
@@ -96,6 +106,8 @@ button {
   box-shadow: inset 0px 0px 5px black, inset 0px 0px 0px #F7EA25;
   /*font-size: 1vw;*/
   font-family: 'Anton', sans-serif;
+  font-size: 1.3vw;
+  color: var(--chocklad);
 
 }
 
@@ -170,7 +182,7 @@ p{
   background-color:#fdc794f8; 
   border-radius: 10px;
   padding: .7em .7em .7em .7em;
-  margin: 2rem 4rem 0 0rem;
+  margin: 2rem 0 0 0;
 }
 .fight{
   text-align: center;
