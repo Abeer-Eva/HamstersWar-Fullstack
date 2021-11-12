@@ -12,19 +12,20 @@ import { actions } from '../../features/hamstersReducer'
 interface OverlayProps {
     close: () => void;
     addHamster: (hamster: Hamster) => void;
+    setHamsterData:(array:Hamster[])=>void;
 }
 
-const Overlay = ({ close, addHamster }: OverlayProps) => {
+const Overlay = ({ close, addHamster,setHamsterData }: OverlayProps) => {
     const [name, setName] = useState<string>('')
     const [age, setAge] = useState<number>(0)
     const [favFood, setFavFood] = useState<string>('')
     const [loves, setLoves] = useState<string>('')
     const [imgName, setImgName] = useState<string>('')
 
-    const [hamsterData, setHamsterData] = useState<Hamster[] | null>(null)
 
 
-    async function sendRequest(AllHamsters:any) {
+
+    async function sendRequest() {
 		try {
 			const response = await fetch('/hamsters')
 			const data = await response.json()
@@ -60,7 +61,7 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
         console.log(newHamster)
         console.log("Success", newHamster);
         await dispatch(actions.addHamster(newHamster))
-        sendRequest(setHamsterData)
+        sendRequest()
 
         close()
 
@@ -93,7 +94,7 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
                 </form>
                 <div>
 
-                    <button className="addhamster" onClick={()=> { postHamster(); window.location.reload()}}> Add hamster </button>
+                    <button className="addhamster" onClick={()=> { postHamster();}}> Add hamster </button>
                     <button className="close-btn" onClick={close}> x </button>
                 </div>
 

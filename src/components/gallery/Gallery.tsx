@@ -38,7 +38,7 @@ const Gallery = () => {
     let addHamsterOverlay = null
     if (showAddHamsterOverlay) {
         const closeOverlay = () => setShowAddHamsterOverlay(false)
-        addHamsterOverlay = <Overlay close={closeOverlay} addHamster={addHamster} />
+        addHamsterOverlay = <Overlay close={closeOverlay} addHamster={addHamster}   setHamsterData={setHamsterData} />
         // JSX översätts till funktionsanrop: _jsx('h1', 'content')
     }
 
