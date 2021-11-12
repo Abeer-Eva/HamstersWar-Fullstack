@@ -20,7 +20,20 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
     const [favFood, setFavFood] = useState<string>('')
     const [loves, setLoves] = useState<string>('')
     const [imgName, setImgName] = useState<string>('')
-const [hamsterData, setHamsterData] = useState<Hamster[] | null>(null)
+
+    const [hamsterData, setHamsterData] = useState<Hamster[] | null>(null)
+
+
+    async function sendRequest(AllHamsters:any) {
+		try {
+			const response = await fetch('/hamsters')
+			const data = await response.json()
+			setHamsterData(data)
+		} catch (error) {
+			console.log('error:', error);
+		}
+	}
+   
 
     const dispatch = useDispatch()
 
@@ -47,18 +60,13 @@ const [hamsterData, setHamsterData] = useState<Hamster[] | null>(null)
         console.log(newHamster)
         console.log("Success", newHamster);
         await dispatch(actions.addHamster(newHamster))
-        
-        
+        sendRequest(setHamsterData)
+
         close()
 
         
      }
-    //   const uppdateGallery=async () => {
-    //     const response = await fetch('/hamsters')
-    //            const hamsterData = await response.json() 
-    //            setHamsterData(hamsterData)
-                
-    // }   
+      
     return (
         <div className="overlay">
             <div className="dialog">
@@ -85,7 +93,7 @@ const [hamsterData, setHamsterData] = useState<Hamster[] | null>(null)
                 </form>
                 <div>
 
-                    <button className="addhamster" onClick={()=> { postHamster()}}> Add hamster </button>
+                    <button className="addhamster" onClick={()=> { postHamster(); window.location.reload()}}> Add hamster </button>
                     <button className="close-btn" onClick={close}> x </button>
                 </div>
 
