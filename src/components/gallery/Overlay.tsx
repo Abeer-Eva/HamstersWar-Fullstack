@@ -20,17 +20,17 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
     const [favFood, setFavFood] = useState<string>('')
     const [loves, setLoves] = useState<string>('')
     const [imgName, setImgName] = useState<string>('')
-
+const [hamsterData, setHamsterData] = useState<Hamster[] | null>(null)
 
     const dispatch = useDispatch()
 
     const postHamster = async () => {
         // förbered Hamster-objekt och anropa addHamster-funktionen
-        const hamster = {
+        const hamster= {
             // Hämta riktiga värden från formuläret
             age: age, defeats: 0, favFood: favFood, games: 0, imgName: imgName, loves: loves, name: name, wins: 0
         }
-        const response = await fetch('http://localhost:1337/hamsters/',
+        const response = await fetch('/hamsters/',
             {
                 method: 'POST',
                 headers: {
@@ -39,19 +39,26 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
                 },
                 body: JSON.stringify(hamster)
             }
+           
         )
-
+      
         console.log(JSON.stringify(hamster));
         const newHamster = await response.json()
         console.log(newHamster)
         console.log("Success", newHamster);
         await dispatch(actions.addHamster(newHamster))
-
-
+        
+        
         close()
 
-
-    }
+        
+     }
+    //   const uppdateGallery=async () => {
+    //     const response = await fetch('/hamsters')
+    //            const hamsterData = await response.json() 
+    //            setHamsterData(hamsterData)
+                
+    // }   
     return (
         <div className="overlay">
             <div className="dialog">
@@ -78,7 +85,7 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
                 </form>
                 <div>
 
-                    <button className="addhamster" onClick={postHamster}> Add hamster </button>
+                    <button className="addhamster" onClick={()=> { postHamster()}}> Add hamster </button>
                     <button className="close-btn" onClick={close}> x </button>
                 </div>
 
@@ -91,3 +98,5 @@ const Overlay = ({ close, addHamster }: OverlayProps) => {
 
 
 export default Overlay
+
+

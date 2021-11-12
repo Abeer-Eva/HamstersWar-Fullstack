@@ -8,17 +8,18 @@ import Header from "./Header"
 
 
 
-async function sendRequest(saveData: any) {
-
-    const response = await fetch('http://localhost:1337/hamsters')
-    const data = await response.json()
-    saveData(data)
-    console.log(data)
-}
-
 
 const Gallery = () => {
-
+    
+    async function sendRequest(setAllHamsters:any) {
+		try {
+			const response = await fetch('/hamsters')
+			const data = await response.json()
+			setAllHamsters(data)
+		} catch (error) {
+			console.log('error:', error);
+		}
+	}
 
     const [hamsterData, setHamsterData] = useState<Hamster[]>(Array)
     const [showAddHamsterOverlay, setShowAddHamsterOverlay] = useState<boolean>(true)
@@ -53,7 +54,7 @@ const Gallery = () => {
 
 
     const DeleteOne = async (id: string) => {
-        await fetch(`http://localhost:1337/hamsters/${id}`, {
+        await fetch(`/hamsters/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json;charset=UTF-8',

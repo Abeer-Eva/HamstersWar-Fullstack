@@ -27,7 +27,8 @@ gallery-header {
 }
 .hamster-card:hover {
     transition: all .7s;
-    transform: scale(1.5);
+    transform: scale(1.2);
+
 }
 .hamster-card:hover p{
     visibility: visible;

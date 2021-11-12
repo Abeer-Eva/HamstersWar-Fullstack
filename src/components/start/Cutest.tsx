@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Hamster } from "../../models/hamster"
 
 async function sendRequest(saveData: any) {
-    const response = await fetch('http://localhost:1337/hamsters/cutest')
+    const response = await fetch('/hamsters/cutest')
     const data = await response.json()
     saveData(data)
 }
