@@ -167,7 +167,7 @@ const Overlay = ({ close, setHamsterData }: OverlayProps) => {
                     <input type="url" placeholder="Image URL" value={imgName} disabled={isChecked}
                         onChange={e => handleImgName(e.target.value)} className={imgIsValid ? 'valid' : ' not-valid'} />
                     {imgIsValid && !isChecked ?
-                        <img src={imgName.includes('http') ? imgName : `/img/${imgName}`} alt="hamsterbild" />
+                        <img src={imgName.includes('http') ? imgName : `/img/${imgName}`} alt="hamsterbild"    className="web-img"/>
                         : null
                     }
                     <input type="checkbox" onChange={() => handleRandomImg(!isChecked)} /><label>tryck here for random bild</label>

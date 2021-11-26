@@ -83,7 +83,7 @@ gallery-header {
 }
 
 .overlay .dialog form label {
-    margin-bottom: .5rem;
+    margin-bottom: 1.5rem;
     color: var(--dark-orange); 
 }
 
@@ -113,4 +113,8 @@ img{
 }
 span{
     color: rgba(214, 10, 10, 0.808);
+}
+.web-img{
+    width: 250px;
+    height: 150px;
 }
