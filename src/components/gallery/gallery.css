@@ -84,6 +84,7 @@ gallery-header {
 
 .overlay .dialog form label {
     margin-bottom: .5rem;
+    color: var(--dark-orange); 
 }
 
 .overlay .dialog .close-btn {
@@ -109,4 +110,7 @@ gallery-header {
   }
 img{
     max-width: 100%;
+}
+span{
+    color: rgba(214, 10, 10, 0.808);
 }
