@@ -201,6 +201,7 @@ li{
   list-style: none;
 }
 
+
 @media screen and (max-width:400px) {
   .App{
     padding: 0 2em;
@@ -210,6 +211,10 @@ li{
   }
   h1{
     font-size: 3em;
+  }
+  .contestants{
+    flex-direction: column;
+    margin: 0;
   }
   
 }
