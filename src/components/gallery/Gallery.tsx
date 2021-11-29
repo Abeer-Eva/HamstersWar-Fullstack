@@ -80,7 +80,7 @@ const Gallery = () => {
                 {hamsterData ?
                     hamsterData.map(hamster => (
                         <section key={hamster.id} className="hamster-card">
-                            <img   className="hamster-img" src={"hamsters/" + hamster.imgName} alt="hamster" width="250" height="250" />
+                            <img   className="hamster-img" src={hamster.imgName.includes('http') ? hamster.imgName : "hamsters/" + hamster.imgName} alt="hamster" width="250" height="250" />
 
                             <h3>{hamster.name}</h3>
                             <p className="hamster-info"  >age : {hamster.age}<br/>
