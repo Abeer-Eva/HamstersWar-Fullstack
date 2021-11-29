@@ -61,7 +61,6 @@ const Overlay = ({ close, setHamsterData }: OverlayProps) => {
         let hamsterImg2 = testString.slice(-4)
 
         let urlOk = startHost && pathCheck
-
         let fileNameOk = hamsterImg2.join('') === '.jpg' && hamsterImg1.join('') === 'hamster-'
         return urlOk || fileNameOk || isChecked
     }
