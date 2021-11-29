@@ -17,7 +17,7 @@ interface OverlayProps {
 
 const Overlay = ({ close, setHamsterData }: OverlayProps) => {
     const [name, setName] = useState<string>('')
-    const [age, setAge] = useState<number>(1)
+    const [age, setAge] = useState<number>(0.5)
     const [favFood, setFavFood] = useState<string>('')
     const [loves, setLoves] = useState<string>('')
     const [imgName, setImgName] = useState<string>('')
@@ -27,11 +27,12 @@ const Overlay = ({ close, setHamsterData }: OverlayProps) => {
     const [clickedNameField, setClickedNameField] = useState<boolean>(false)
     const [clickedLoveField, setClickedLoveField] = useState<boolean>(false)
     const [clickedFoodField, setClickedFoodField] = useState<boolean>(false)
-
+    const [ clickedAgeField, setClickedAgeField ] = useState<boolean>(false)
     const nameIsValid = validateName(name)
     const loveIsValid = validateLove(loves)
     const foodIsValid = validateFood(favFood)
     const imgIsValid = validateImg(imgName, isChecked)
+    const ageIsValid = validateAge(age)
 
 
 
@@ -89,11 +90,21 @@ const Overlay = ({ close, setHamsterData }: OverlayProps) => {
         setFavFood(input)
         setClickedFoodField(true)
     }
+    const handleAge = (input:number) => {
+		if(input.toString().length > 0) {
+			setAge(input)
+		}
+		setClickedAgeField(true)
+	}
 
 
+    function validateAge(input:number):boolean {
+		return input >= 0.5 
+		
+	}
     async function sendRequest() {
         try {
-            const response = await fetch('/hamsters')
+            const response = await fetch('http://localhost:3000/hamsters')
             const data = await response.json()
             setHamsterData(data)
         } catch (error) {
@@ -161,9 +172,12 @@ const Overlay = ({ close, setHamsterData }: OverlayProps) => {
                     }
 
                     <input type="number" min="1" value={age}
-                        onChange={e => setAge(e.target.valueAsNumber)} />
+                        onChange={e => handleAge(e.target.valueAsNumber)} />
+                        {!ageIsValid && clickedAgeField ?
+				        <span >Age att least 0.5</span>
+				         :null
 
-
+                }
                     <input type="url" placeholder="Image URL" value={imgName} disabled={isChecked}
                         onChange={e => handleImgName(e.target.value)} className={imgIsValid ? 'valid' : ' not-valid'} />
                     {imgIsValid && !isChecked ?

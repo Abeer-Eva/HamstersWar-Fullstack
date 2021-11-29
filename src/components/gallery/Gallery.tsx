@@ -13,7 +13,7 @@ const Gallery = () => {
     
     async function sendRequest(setAllHamsters:any) {
 		try {
-			const response = await fetch('/hamsters')
+			const response = await fetch('http://localhost:3000/hamsters')
 			const data = await response.json()
 			setAllHamsters(data)
 		} catch (error) {
@@ -80,7 +80,7 @@ const Gallery = () => {
                 {hamsterData ?
                     hamsterData.map(hamster => (
                         <section key={hamster.id} className="hamster-card">
-                            <img src={"hamsters/" + hamster.imgName} alt="hamster" width="250" height="250" />
+                            <img   className="hamster-img" src={"hamsters/" + hamster.imgName} alt="hamster" width="250" height="250" />
 
                             <h3>{hamster.name}</h3>
                             <p className="hamster-info"  >age : {hamster.age}<br/>
@@ -91,7 +91,7 @@ const Gallery = () => {
                             Games:{hamster.games}</p>
 
 
-                            <button onClick={() => { DeleteOne(hamster.id); handleRemove(hamster.id) }}    >Remove</button>
+                            <button   onClick={() => { DeleteOne(hamster.id); handleRemove(hamster.id) }}    >Remove</button>
                         </section>
 
                     ))

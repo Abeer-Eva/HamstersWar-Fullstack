@@ -22,6 +22,7 @@ gallery-header {
     flex-direction: column;
 
 }
+
 .hamster-card p {
     visibility: hidden;
 }
@@ -62,7 +63,7 @@ gallery-header {
     display: flex;
     flex-direction: column;
     font-weight:bold; 
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 .input-field {
@@ -76,14 +77,14 @@ gallery-header {
 .overlay .dialog form input {
     /* background-color: white; */ /* Funkar ej utan att ange id likt ovan */
     margin-bottom: 1rem;
-    padding: .7rem;
+    padding: .5rem;
     font-size: 1rem;
     border: none;
     border-radius: 10px;
 }
 
 .overlay .dialog form label {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     color: var(--dark-orange); 
 }
 
@@ -104,6 +105,11 @@ gallery-header {
 
     transition: .3s all;
   }
+  .addhamster{
+  
+    font-size: 1rem;
+    padding: .7rem 2rem;
+  }
   .gallery-title {
       text-align: center;
       font-size: 3em ;
@@ -117,4 +123,14 @@ span{
 .web-img{
     width: 250px;
     height: 150px;
+}
+@media screen and (min-width:300px) {
+    
+    .hamster-image{
+        min-width: 100px;
+        min-height: 100px;
+    }
+    p{
+        font-size: 14px;
+    }
 }
