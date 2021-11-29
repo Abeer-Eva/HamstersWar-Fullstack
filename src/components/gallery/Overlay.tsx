@@ -104,7 +104,7 @@ const Overlay = ({ close, setHamsterData }: OverlayProps) => {
 	}
     async function sendRequest() {
         try {
-            const response = await fetch('http://localhost:3000/hamsters')
+            const response = await fetch('/hamsters')
             const data = await response.json()
             setHamsterData(data)
         } catch (error) {

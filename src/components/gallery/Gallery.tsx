@@ -13,7 +13,7 @@ const Gallery = () => {
     
     async function sendRequest(setAllHamsters:any) {
 		try {
-			const response = await fetch('http://localhost:3000/hamsters')
+			const response = await fetch('/hamsters')
 			const data = await response.json()
 			setAllHamsters(data)
 		} catch (error) {
